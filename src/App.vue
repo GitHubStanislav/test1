@@ -1,4 +1,7 @@
 <template>
+
+  <login-form/>
+
   <section v-cloak>
     <h1>{{ name }}</h1>
     <input v-model="inputValue"/>
@@ -15,14 +18,19 @@
       <div class="box" v-if="ifVisible">toggle</div>
     </section>
 
-
   </section>
 
 
 </template>
 
 <script>
+import loginForm from "@/components/loginForm.vue";
+
+
 export default {
+  components: {
+    loginForm
+  },
   data() {
     return {
       post: [],

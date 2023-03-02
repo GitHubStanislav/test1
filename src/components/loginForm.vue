@@ -1,46 +1,51 @@
 <template>
   <div class="formWrapper">
-   <form @submit="handleSubmit">
-     <h1>{{ title }}</h1>
-     <input type="email" v-model="email">
-     <input type="password" v-model="password">
-     <button>Log in</button>
-   </form>
-
+    <form @submit="handleSubmit">
+      <h1>{{ title }}</h1>
+      <custom-input type="email" :label="emailLabel"/>
+      <custom-input type="password" :label="passwordLabel"/>
+      <button>Log in</button>
+    </form>
   </div>
 </template>
 
 <script>
+import CustomInput from "@/components/CustomInput.vue";
+
 export default {
   name: "loginForm",
+  components: {CustomInput},
   data() {
     return {
       title: 'Login Form',
       email: '',
       password: '',
+      emailLabel: 'Email',
+      passwordLabel: 'Password'
     }
   },
-  methods:{
-    handleSubmit(event){
+  methods: {
+    handleSubmit(event) {
       event.preventDefault()
-      console.log(this.email , this.password)
+      console.log(this.email, this.password)
     }
   }
 }
 </script>
 
-<style scoped>
+<style>
 .formWrapper {
   display: flex;
   flex-direction: column;
 }
 
 .formWrapper input {
-  width: 50%;
+  width: 30%;
   margin-top: 5px;
-}
-button{
   display: block;
+}
+
+button {
   margin-top: 10px;
 }
 

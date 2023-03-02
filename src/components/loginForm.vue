@@ -2,8 +2,14 @@
   <div class="formWrapper">
     <form @submit="handleSubmit">
       <h1>{{ title }}</h1>
-      <custom-input type="email" :label="emailLabel"/>
-      <custom-input type="password" :label="passwordLabel"/>
+      <custom-input
+          v-model="email"
+          :model-value="email"
+          :label="emailLabel"/>
+      <custom-input
+          v-model="password"
+          :model-value="password"
+          :label="passwordLabel"/>
       <button>Log in</button>
     </form>
   </div>

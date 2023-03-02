@@ -1,14 +1,14 @@
 <template>
   <label>
     {{ label }}
-    <input type="text" v-model="inputValue"/>
+    <input  type="text" v-model="inputValue"/>
   </label>
 </template>
 
 <script>
 export default {
   name: "CustomInput",
-  props: ['label', 'modelValue'],
+  props: ['label', 'modelValue',],
   computed: {
     inputValue: {
       get() {
@@ -18,11 +18,11 @@ export default {
         console.log(value)
         this.$emit('update:modelValue', value)
       },
-    }
+    },
   },
+ 
   data() {
     return {
-      // inputValue:''
     }
   }
 }

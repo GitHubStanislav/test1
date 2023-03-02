@@ -10,7 +10,6 @@
           v-model="password"
           :model-value="password"
           :label="passwordLabel"/>
-      <button>Log in</button>
     </form>
   </div>
 </template>

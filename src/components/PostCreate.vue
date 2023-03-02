@@ -1,6 +1,6 @@
 <template>
   <section v-cloak>
-    <h1>{{ name }}</h1>
+    <h1>{{ logName }}</h1>
     <input v-model="inputValue"/>
     <button @click="addPost">Add post</button>
     <button @click="clearField">Clear this</button>
@@ -19,15 +19,18 @@
 <script>
 
 export default {
+
   name: "postCreate",
   data() {
     return {
       post: [],
-      name: 'Create post',
+      logName: 'Create post',
       inputValue: '',
-      ifVisible: false
+      ifVisible: false,
+
     }
   },
+
   methods: {
     clearField() {
       this.inputValue = ''

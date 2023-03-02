@@ -18,6 +18,7 @@ export default {
   data() {
     return {
       post: [],
+      logList:[],
       name: 'Create post',
       inputValue: '',
       ifVisible: false

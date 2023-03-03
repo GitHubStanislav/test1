@@ -41,7 +41,9 @@ export default {
     addPost() {
       this.post.push(this.inputValue)
       this.inputValue=''
-    }
+      localStorage.setItem('posts',JSON.stringify(this.post))
+    },
+
   }
 }
 </script>

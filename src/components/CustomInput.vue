@@ -1,7 +1,7 @@
 <template>
   <label>
     {{ label }}
-    <input  type="text" v-model="inputValue"/>
+    <input type="text" v-model="inputValue" @input="handleChange"/>
   </label>
 </template>
 
@@ -9,6 +9,7 @@
 export default {
   name: "CustomInput",
   props: ['label', 'modelValue',],
+
   computed: {
     inputValue: {
       get() {
@@ -20,9 +21,15 @@ export default {
       },
     },
   },
- 
+
   data() {
     return {
+      upperCase: '',
+    }
+  },
+  methods: {
+    handleChange (event) {
+      this.$emit("customChange", event.target.value.toUpperCase())
     }
   }
 }

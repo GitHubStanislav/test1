@@ -5,11 +5,18 @@
       <custom-input
           v-model="email"
           :model-value="email"
-          :label="emailLabel"/>
+          :label="emailLabel"
+          @custom-change="handleCustomChange"
+
+      />
+
       <custom-input
           v-model="password"
           :model-value="password"
-          :label="passwordLabel"/>
+          :label="passwordLabel"
+      />
+      <p>{{uppercase}}</p>
+      <button>Click</button>
     </form>
   </div>
 </template>
@@ -26,14 +33,19 @@ export default {
       email: '',
       password: '',
       emailLabel: 'Email',
-      passwordLabel: 'Password'
+      passwordLabel: 'Password',
+      uppercase: ''
     }
   },
   methods: {
     handleSubmit(event) {
       event.preventDefault()
       console.log(this.email, this.password)
+    },
+    handleCustomChange (s) {
+      this.uppercase = s
     }
+
   }
 }
 </script>
@@ -42,6 +54,8 @@ export default {
 .formWrapper {
   display: flex;
   flex-direction: column;
+
+
 }
 
 .formWrapper input {

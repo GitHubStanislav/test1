@@ -52,6 +52,7 @@ export default {
 
 button {
   margin-top: 10px;
+  color: darkred;
 }
 
 </style>

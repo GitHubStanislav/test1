@@ -3,20 +3,14 @@
     <form @submit="handleSubmit">
       <h1>{{ title }}</h1>
       <custom-input
-          v-model="email"
-          :model-value="email"
-          :label="emailLabel"
-          @custom-change="handleCustomChange"
-
+          v-for="(input,index) in inputs"
+          :key="index"
+          v-model="input.value"
+          :label="input.label"
+          :type="input.type"
       />
+     <button>Log in </button>
 
-      <custom-input
-          v-model="password"
-          :model-value="password"
-          :label="passwordLabel"
-      />
-      <p>{{uppercase}}</p>
-      <button>Click</button>
     </form>
   </div>
 </template>
@@ -30,6 +24,17 @@ export default {
   data() {
     return {
       title: 'Login Form',
+      inputs:[{
+        label:'Email',
+        value:'',
+        type: 'email'
+      },
+        {
+          label:'Password',
+          value:'',
+          type: 'password'
+        },
+      ],
       email: '',
       password: '',
       emailLabel: 'Email',
@@ -40,11 +45,8 @@ export default {
   methods: {
     handleSubmit(event) {
       event.preventDefault()
-      console.log(this.email, this.password)
+      console.log(this.inputs[0].value, this.inputs[1].value)
     },
-    handleCustomChange (s) {
-      this.uppercase = s
-    }
 
   }
 }

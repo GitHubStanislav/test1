@@ -1,6 +1,6 @@
 <template>
   <section v-cloak>
-    <h1>{{ logName }}</h1>
+    <h1>{{ title }}</h1>
     <input v-model="inputValue"/>
     <button @click="addPost">Add post</button>
     <button @click="clearField">Clear this</button>
@@ -21,6 +21,7 @@ import TestBox from "@/components/TestBox.vue";
 export default {
 components:{TestBox},
   name: "postCreate",
+  props:['title',],
   data() {
     return {
       posts: [],

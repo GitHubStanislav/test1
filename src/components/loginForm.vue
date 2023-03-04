@@ -9,7 +9,7 @@
           :label="input.label"
           :type="input.type"
       />
-     <button>Log in </button>
+      <button>Log in</button>
 
     </form>
   </div>
@@ -24,14 +24,14 @@ export default {
   data() {
     return {
       title: 'Login Form',
-      inputs:[{
-        label:'Email',
-        value:'',
+      inputs: [{
+        label: 'Email',
+        value: '',
         type: 'email'
       },
         {
-          label:'Password',
-          value:'',
+          label: 'Password',
+          value: '',
           type: 'password'
         },
       ],

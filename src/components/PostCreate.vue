@@ -6,27 +6,28 @@
     <button @click="clearField">Clear this</button>
     <p v-if="inputValue">Some text will be here: {{ inputValue }}</p>
     <p v-else>Some text will be here:</p>
-    <div v-for="post in post" :key="post">
+    <div v-for="(post,index) in posts" :key="index">
       <p class="post"> {{ post }} </p>
     </div>
     <section>
       <button @click="showBox">Show box</button>
-      <div class="box" v-if="ifVisible">toggle</div>
+      <test-box :box-name="nameBox" v-if="ifVisible"/>
     </section>
   </section>
 </template>
 
 <script>
-
+import TestBox from "@/components/TestBox.vue";
 export default {
-
+components:{TestBox},
   name: "postCreate",
   data() {
     return {
-      post: [],
+      posts: [],
       logName: 'Create post',
       inputValue: '',
-      ifVisible: false,
+      ifVisible: true,
+      nameBox: 'Hello Box!'
 
     }
   },
@@ -39,26 +40,20 @@ export default {
       this.ifVisible = !this.ifVisible
     },
     addPost() {
-      this.post.push(this.inputValue)
+      this.posts.push(this.inputValue)
       this.inputValue=''
-      localStorage.setItem('posts',JSON.stringify(this.post))
+      localStorage.setItem('posts',JSON.stringify(this.posts))
     },
 
   }
 }
 </script>
 
-<style scoped>
+<style >
 [v-cloack] {
   display: none;
 }
 
-.box {
-  background-color: darkorange;
-  width: 100px;
-  text-align: center;
-  margin-top: 10px;
-}
 
 .post {
   border: #630152 2px solid;

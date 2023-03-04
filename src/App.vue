@@ -3,16 +3,19 @@
   <login-form/>
   <Post-create/>
 
+
 </template>
 
 <script>
 import loginForm from "@/components/loginForm.vue";
 import PostCreate from "@/components/PostCreate.vue";
 
+
 export default {
   components: {
     PostCreate,
     loginForm,
+
 
   },
   data() {

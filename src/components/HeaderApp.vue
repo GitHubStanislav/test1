@@ -1,7 +1,7 @@
 <template>
 <header>
   <h1>{{title}}</h1>
-  <ButtonHeader/>
+  <button-header text="Add Tasks" color="green"/>
 </header>
 </template>
 
@@ -11,7 +11,10 @@ import ButtonHeader from "@/components/ButtonHeader.vue";
 
 export default {
   name: "HeaderApp",
-  props:['title'],
+  props:{
+    title:String,
+
+  },
   components: {ButtonHeader}
 }
 </script>

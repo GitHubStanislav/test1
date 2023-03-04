@@ -1,23 +1,19 @@
 <template>
 
-  <LoginForm/>
-  <PostCreate/>
   <div class="container">
-    <HeaderApp :title="titleHeader"/>
+    <header-app :title="titleHeader"/>
   </div>
 
 
 </template>
 
 <script>
-import loginForm from "@/components/loginForm.vue";
-import PostCreate from "@/components/PostCreate.vue";
+
 import HeaderApp from "@/components/HeaderApp.vue";
 
 export default {
   components: {
-    PostCreate,
-    loginForm,
+
     HeaderApp
 
 
@@ -25,24 +21,33 @@ export default {
   data() {
     return {
       titleHeader: 'Hello',
-      post: [],
-      logList: [],
-      logName: 'Create post',
-      name: 'Create post',
-      inputValue: '',
-      ifVisible: false
+      task:[]
     }
   },
+  created() {
+  this.task = [
+    {
+      id:1,
+      text: 'Doctor Appointment',
+      day: 'March 1st',
+      reminder: true
+    },
+    {
+      id:2,
+      text: 'Meeting at School',
+      day: 'March 3rd',
+      reminder: true
+    },
+    {
+      id:3,
+      text: 'Food Shopping',
+      day: 'March 3rd',
+      reminder: false
+    },
+  ]
+    },
   methods: {
-    clearField() {
-      this.inputValue = ''
-    },
-    showBox() {
-      this.ifVisible = !this.ifVisible
-    },
-    addPost() {
-      this.post.push(this.inputValue)
-    }
+
   }
 }
 </script>

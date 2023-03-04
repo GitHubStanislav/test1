@@ -26,10 +26,13 @@ components:{TestBox},
       posts: [],
       logName: 'Create post',
       inputValue: '',
-      ifVisible: true,
+      ifVisible: false,
       nameBox: 'Hello Box!'
 
     }
+  },
+  updated() {
+  console.log('update')
   },
 
   methods: {

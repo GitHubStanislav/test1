@@ -1,26 +1,24 @@
 <template>
-<header>
-  <h1>{{title}}</h1>
-  <button-header text="Add Tasks" color="green"/>
-</header>
+  <header>
+    <h1>{{ title }}</h1>
+    <button-header text="Add Tasks" color="green" />
+  </header>
 </template>
 
 <script>
-
-import ButtonHeader from "@/components/ButtonHeader.vue";
+import ButtonHeader from '@/components/ButtonHeader.vue'
 
 export default {
-  name: "HeaderApp",
-  props:{
-    title:String,
-
+  name: 'HeaderApp',
+  props: {
+    title: String
   },
-  components: {ButtonHeader}
+  components: { ButtonHeader }
 }
 </script>
 
 <style scoped>
-header{
+header {
   display: flex;
   justify-content: space-between;
   align-items: center;

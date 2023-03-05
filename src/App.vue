@@ -1,64 +1,57 @@
 <template>
-
   <div class="container">
-    <header-app :title="titleHeader"/>
-    <tasks-get :tasksList="tasks"/>
-
+    <header-app :title="titleHeader" />
+    <tasks-get @delete-task="deleteTask" :tasksList="tasks" />
   </div>
-
-
 </template>
 
 <script>
-
-import HeaderApp from "@/components/HeaderApp.vue";
-import TasksGet from "@/components/TasksGet.vue";
-
+import HeaderApp from '@/components/HeaderApp.vue'
+import TasksGet from '@/components/TasksGet.vue'
 
 export default {
   components: {
-
-    HeaderApp,TasksGet
-
-
+    HeaderApp,
+    TasksGet
   },
   data() {
     return {
       titleHeader: 'Hello',
-      tasks:[]
+      tasks: []
     }
   },
   created() {
-  this.tasks = [
-    {
-      id:1,
-      text: 'Doctor Appointment',
-      day: 'March 1st',
-      reminder: true
-    },
-    {
-      id:2,
-      text: 'Meeting at School',
-      day: 'March 3rd',
-      reminder: true
-    },
-    {
-      id:3,
-      text: 'Food Shopping',
-      day: 'March 3rd',
-      reminder: false
-    },
-  ]
-    },
+    this.tasks = [
+      {
+        id: 1,
+        text: 'Doctor Appointment',
+        day: 'March 1st',
+        reminder: true
+      },
+      {
+        id: 2,
+        text: 'Meeting at School',
+        day: 'March 3rd',
+        reminder: true
+      },
+      {
+        id: 3,
+        text: 'Food Shopping',
+        day: 'March 3rd',
+        reminder: false
+      }
+    ]
+  },
   methods: {
-
-  }
+    deleteTask(id){
+this.tasks = this.tasks.filter((task)=> task.id !== id)
+    console.log('task', id)
+    }
+  },
 }
 </script>
 
 <style>
-
-
 * {
   box-sizing: border-box;
   margin: 0;

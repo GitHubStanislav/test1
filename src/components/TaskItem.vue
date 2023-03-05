@@ -1,34 +1,44 @@
 <template>
-<div class="task">
-  <h3>{{task.text}}</h3>
-  <p>{{task.day}}</p>
-</div>
-
+  <div :class="[tasksList.reminder? 'reminder' : '', 'task']">
+    <h3>
+      {{ tasksList.text }}
+      <i @click="onDelete(tasksList.id)" class="fas fa-times"></i>
+    </h3>
+    <p>{{ tasksList.day }}</p>
+  </div>
 </template>
 
 <script>
 export default {
-  name: "TaskItem",
-  props:{
-    task:Object
+  name: 'TaskItem',
+  props:['tasksList'],
+  methods:{
+    onDelete(id){
+this.$emit('delete-task',id)
+
+    }
   }
 }
 </script>
 
 <style scoped>
-.task{
+.fas{
+  color:red;
+}
+.task {
   background: #f4f4f4;
   margin: 5px;
   padding: 10px 20px;
   cursor: pointer;
 }
-.task.reminder{
+
+.task.reminder {
   border-left: 5px solid green;
 }
-.task h3{
+
+.task h3 {
   display: flex;
   align-items: center;
   justify-content: space-between;
-
 }
 </style>

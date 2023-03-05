@@ -2,6 +2,8 @@
 
   <div class="container">
     <header-app :title="titleHeader"/>
+    <tasks-get :tasksList="tasks"/>
+
   </div>
 
 
@@ -10,22 +12,24 @@
 <script>
 
 import HeaderApp from "@/components/HeaderApp.vue";
+import TasksGet from "@/components/TasksGet.vue";
+
 
 export default {
   components: {
 
-    HeaderApp
+    HeaderApp,TasksGet
 
 
   },
   data() {
     return {
       titleHeader: 'Hello',
-      task:[]
+      tasks:[]
     }
   },
   created() {
-  this.task = [
+  this.tasks = [
     {
       id:1,
       text: 'Doctor Appointment',

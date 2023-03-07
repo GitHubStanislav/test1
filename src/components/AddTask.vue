@@ -2,41 +2,23 @@
   <form @submit="OnSubmit" class="add-form">
     <div class="form-control">
       <label>Task</label>
-      <input
-          type="text"
-          v-model="text"
-          name="text"
-          placeholder="Add Task"
-      />
+      <input type="text" v-model="text" name="text" placeholder="Add Task" />
     </div>
     <div class="form-control">
       <label>Day & Time</label>
-      <input
-          type="text"
-          v-model="day"
-          name="day"
-          placeholder="Add Day & Time"
-      />
+      <input type="text" v-model="day" name="day" placeholder="Add Day & Time" />
     </div>
     <div class="form-control-check">
       <label>Set Reminder</label>
-      <input
-          type="checkbox"
-          v-model="reminder"
-          name="reminder"
-      />
+      <input type="checkbox" v-model="reminder" name="reminder" />
     </div>
-    <input
-        type="submit"
-        value="Save Task"
-        class="btn btn-block"
-    />
+    <input type="submit" value="Save Task" class="btn btn-block" />
   </form>
 </template>
 
 <script>
 export default {
-  name: "AddTask",
+  name: 'AddTask',
   data() {
     return {
       text: '',
@@ -86,7 +68,6 @@ export default {
   margin: 5px;
   padding: 3px 7px;
   font-size: 17px;
-
 }
 
 .form-control-check {

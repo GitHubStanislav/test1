@@ -1,24 +1,17 @@
 <template>
   <div class="container">
-    <HeaderApp
-        :title="titleHeader"
-        @toggle-add-task="toggleAddTask"
-        :showAddTask="showAddTask"
-    />
+    <HeaderApp :title="titleHeader" @toggle-add-task="toggleAddTask" :showAddTask="showAddTask" />
     <div v-if="showAddTask">
-      <AddTask @add-task="addTask"/>
+      <AddTask @add-task="addTask" />
     </div>
-    <TasksGet
-        @delete-task="deleteTask"
-        @toggle-reminder="toggleReminder"
-        :tasksList="tasks"/>
+    <TasksGet @delete-task="deleteTask" @toggle-reminder="toggleReminder" :tasksList="tasks" />
   </div>
 </template>
 
 <script>
 import HeaderApp from '@/components/HeaderApp.vue'
 import TasksGet from '@/components/TasksGet.vue'
-import AddTask from "@/components/AddTask.vue";
+import AddTask from '@/components/AddTask.vue'
 
 export default {
   components: {
@@ -56,7 +49,7 @@ export default {
     ]
   },
   methods: {
-    toggleAddTask(){
+    toggleAddTask() {
       this.showAddTask = !this.showAddTask
     },
     addTask(task) {
@@ -68,13 +61,13 @@ export default {
         this.tasks = this.tasks.filter((task) => task.id !== id)
         console.log('task', id)
       }
-
     },
     toggleReminder(id) {
-      this.tasks = this.tasks.map((task) => task.id === id ?
-          {...task, reminder: !task.reminder} : task)
+      this.tasks = this.tasks.map((task) =>
+        task.id === id ? { ...task, reminder: !task.reminder } : task
+      )
     }
-  },
+  }
 }
 </script>
 
